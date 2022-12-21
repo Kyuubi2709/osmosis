@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1
 
-ARG GO_VERSION="1.18"
-ARG RUNNER_IMAGE="gcr.io/distroless/static-debian11"
+ENV GO_VERSION="1.18"
+ENV RUNNER_IMAGE="gcr.io/distroless/static-debian11"
 
 # --------------------------------------------------------
 # Builder
@@ -9,8 +9,8 @@ ARG RUNNER_IMAGE="gcr.io/distroless/static-debian11"
 
 FROM golang:${GO_VERSION}-alpine as builder
 
-ARG GIT_VERSION
-ARG GIT_COMMIT
+ENV GIT_VERSION
+ENV GIT_COMMIT
 
 RUN apk add --no-cache \
     ca-certificates \
